@@ -65,7 +65,7 @@ home = "$HOME/.config/bish"
 [zsh]
 rc_path = "$HOME/repos/me/dotfiles/.zshrc"
 #+end_src
-** Genes
+** genes
 These genes let bish know all the things it should know how to do.
 Assuming that all the functions you want are referenced here (And sourced at the time of replication), all future replications will contain that code.
 If the code isn't sourced and the remote has been defined, bish can even try to fetch it for you.
@@ -76,28 +76,28 @@ With great power, comes great responsibility.
 Even bish's core features don't need to be set in stone.
 We recommend that you don't change it for compatibility reasons, but it's your config after all.
 #+begin_src sh :tangle bish.sh
-# New Genes (functions) should be defined here
-[Genes]
-    [Genes.bish]
+# New genes (functions) should be defined here
+[genes]
+    [genes.bish]
             description = "Bish the BioShell"
             remote = "https://bish.sh/bish.sh"
             command = "bish"
-        [Genes.bish.Depends]
-            [Genes.bish.Depends.toml]
+        [genes.bish.Depends]
+            [genes.bish.Depends.toml]
                 description = "Read and write toml files"
                 remote = "https://n0s1.sh/toml"
                 command = "toml"
                 use_existing = true
-        [Genes.bish.SubMutations]
-            [Genes.bish.SubMutations.bish_conf]
+        [genes.bish.submutations]
+            [genes.bish.submutations.bish_conf]
                 description = "Various tools for working with bish config"
                 function = "bish_conf"
                 command = "bish conf"
-            [Genes.bish.SubMutations.bish_transcribe]
+            [genes.bish.submutations.bish_transcribe]
                 description = "Write bish, config and mutations to a file"
                 function = "bish_transcribe"
                 command = "bish transcribe"
-            [Genes.bish.SubMutations.bish_layers]
+            [genes.bish.submutations.bish_layers]
                 description = "Load different script layers using bish"
                 function = "bish_layers"
                 command = "bish layers"
@@ -109,33 +109,105 @@ All the code is pulled from nan0scho1ar's core repository.
 NOTE: The toml script IS REQUIRED.
 If you don't understand why and have not made the required changes to replace it with something else, do not remove it.
 #+begin_src sh :tangle bish.sh
-    [Genes.n0s1]
-        [Genes.n0s1.core]
-            [Genes.n0s1.core.toml]
+    [genes.n0s1]
+        [genes.n0s1.core]
+            [genes.n0s1.core.toml]
                 description = ""
                 remote = "https://n0s1.sh/toml"
                 command = "toml"
-            [Genes.n0s1.core.exprq]
-                    description = "Evaluate regex cleanly"
-                    remote = "https://n0s1.sh/exprq"
-                    command = "exprq"
-            [Genes.n0s1.core.fzy]
-                    description = "Small command line fuzzy finder"
-                    remote = "https://n0s1.sh/fzy"
-                    command = "fzy"
-            [Genes.n0s1.core.convert]
-                    description = "Easily convert between different mediums"
-                    remote = "https://n0s1.sh/convert"
-                    command = "convert"
-            [Genes.n0s1.core.extract]
-                    description = "Easily extract many types of archives with one cmd"
-                    remote = "https://n0s1.sh/extract"
-                    command = "extract"
-        [Genes.n0s1.git_manange]
+            [genes.n0s1.core.exprq]
+                description = "Evaluate regex cleanly"
+                remote = "https://n0s1.sh/exprq"
+                command = "exprq"
+            [genes.n0s1.core.fzy]
+                description = "Small command line fuzzy finder"
+                remote = "https://n0s1.sh/fzy"
+                command = "fzy"
+            [genes.n0s1.core.convert]
+                description = "Easily convert between different mediums"
+                remote = "https://n0s1.sh/convert"
+                command = "convert"
+            [genes.n0s1.core.extract]
+                description = "Easily extract many types of archives with one cmd"
+                remote = "https://n0s1.sh/extract"
+                command = "extract"
+            [genes.n0s1.core.trypacmaninstall]
+                description = "trypacmaninstall"
+                remote = "https://n0s1.sh/trypacmaninstall"
+                command = "trypacmaninstall"
+            [genes.n0s1.core.tryaurinstall]
+                description = "tryaurinstall"
+                remote = "https://n0s1.sh/tryaurinstall"
+                command = "tryaurinstall"
+            [genes.n0s1.core.tryaptinstall]
+                description = "tryaptinstall"
+                remote = "https://n0s1.sh/tryaptinstall"
+                command = "tryaptinstall"
+            [genes.n0s1.core.wait_any_key]
+                description = "wait_any_key"
+                remote = "https://n0s1.sh/wait_any_key"
+                command = "wait_any_key"
+            [genes.n0s1.core.ask]
+                description = "ask"
+                remote = "https://n0s1.sh/ask"
+                command = "ask"
+            [genes.n0s1.core.asklink]
+                description = "asklink"
+                remote = "https://n0s1.sh/asklink"
+                command = "asklink"
+            [genes.n0s1.core.askrecursivelinkdir]
+                description = "askrecursivelinkdir"
+                remote = "https://n0s1.sh/askrecursivelinkdir"
+                command = "askrecursivelinkdir"
+            [genes.n0s1.core.asklinksudo]
+                description = "asklinksudo"
+                remote = "https://n0s1.sh/asklinksudo"
+                command = "asklinksudo"
+            [genes.n0s1.core.askclone]
+                description = "askclone"
+                remote = "https://n0s1.sh/askclone"
+                command = "askclone"
+            [genes.n0s1.core.setup_ssh]
+                description = "setup_ssh"
+                remote = "https://n0s1.sh/setup_ssh"
+                command = "setup_ssh"
+            [genes.n0s1.core.detect_os]
+                description = "detect_os"
+                remote = "https://n0s1.sh/detect_os"
+                command = "detect_os"
+            [genes.n0s1.core.arch_pkg_setup]
+                description = "arch_pkg_setup"
+                remote = "https://n0s1.sh/arch_pkg_setup"
+                command = "arch_pkg_setup"
+            [genes.n0s1.core.ubuntu_pkg_setup]
+                description = "ubuntu_pkg_setup"
+                remote = "https://n0s1.sh/ubuntu_pkg_setup"
+                command = "ubuntu_pkg_setup"
+            [genes.n0s1.core.vim_setup]
+                description = "vim_setup"
+                remote = "https://n0s1.sh/vim_setup"
+                command = "vim_setup"
+            [genes.n0s1.core.tmux_setup]
+                description = "tmux_setup"
+                remote = "https://n0s1.sh/tmux_setup"
+                command = "tmux_setup"
+            [genes.n0s1.core.setup_symlinks]
+                description = "setup_symlinks"
+                remote = "https://n0s1.sh/setup_symlinks"
+                command = "setup_symlinks"
+            [genes.n0s1.core.setup_repos]
+                description = "setup_repos"
+                remote = "https://n0s1.sh/setup_repos"
+                command = "setup_repos"
+            [genes.n0s1.core.setup_git]
+                description = "setup_git"
+                remote = "https://n0s1.sh/setup_git"
+                command = "setup_git"
+        [genes.n0s1.git_manange]
             description = "Easily manage multiple git repositories"
             remote = "https://n0s1.sh/git_manange"
             command = "gm"
-        [Genes.n0s1.g]
+        [genes.n0s1.g]
             description = "Quick shortcuts for common git commands"
             remote = "https://n0s1.sh/g"
             aliases = "g"
@@ -144,7 +216,7 @@ If you don't understand why and have not made the required changes to replace it
 *** Z genes
 This is quite a useful script though I have largely replaced it with cb (cd to bookmark) in my personal configuration.
 #+begin_src sh :tangle bish.sh
-    [Genes.z]
+    [genes.z]
         description = "Quickly navigate to recent/commonly accessed directories"
         remote = "https://n0s1.sh/z"
         command = "z"
@@ -156,62 +228,248 @@ We are working toward releasing a verion of bish which allows you to extend func
 This is essentially just a modified version of the bash MAL/Fleck which had been tailored to this task.
 Big thanks to the MAL (Make a lisp) project and Fleck (bash MAL makefile) project for the time save here.
 #+begin_src sh :tangle bish.sh
-    [Genes.bliss]
+    [genes.bliss]
         description = "Bioshell LISp Syntax"
         remote = "https://bish.sh/bliss"
         command = "bliss"
 
 #+end_src
-** TODO Layers
-Often you do not need to load all genes (features) at once and doing so for large configs could slow things down.
-Layers will be used to conditionally enable/disable functionality and avoid loading it when it's not needed.
+** System Configuration
+Bish can be extended to intergrate with package managers and configure your system. This particular implemention is similar to declarative OSes.
+*** Begin layers
+#+begin_src sh :tangle bish.sh
+[system]
+    #[system.Hosts.mercury]
+        #[system.Hosts.mercury.packages]
+    #[system.Hosts.venus]
+        #[system.Hosts.venus.packages]
+    [system.Hosts.earth]
+        packages = "keychain fd ripgrep fzf bat tmux flameshot synergy youtube-dl mpv youtube-viewer zathura yay vim nodejs yarn ttf-jetbrains-mono alacritty emacs python-neovim unzip xsel bspwm sxhkd polybar"
+        [system.Hosts.earth.symlinks]
+            [system.Hosts.earth.symlinks.bashrc]
+                source = "$NANOS_REPOS_DIR/dotfiles/.bashrc"
+                destination = "$HOME/.bashrc"
+                type = "File"
+                superreq = false
+            [system.Hosts.earth.symlinks.xinitrc]
+                source = "$NANOS_REPOS_DIR/dotfiles/.xinitrc"
+                destination = "$HOME/.xinitrc"
+                type = "File"
+                superreq = false
+            [system.Hosts.earth.symlinks.profile]
+                source = "$NANOS_REPOS_DIR/dotfiles/.profile"
+                destination = "$HOME/.profile"
+                type = "File"
+                superreq = false
+            [system.Hosts.earth.symlinks.vimrc]
+                source = "$NANOS_REPOS_DIR/dotfiles/.vimrc"
+                destination = "$HOME/.vimrc"
+                type = "File"
+                superreq = false
+            [system.Hosts.earth.symlinks.xprofile]
+                source = "$NANOS_REPOS_DIR/dotfiles/.xprofile"
+                destination = "$HOME/.xprofile"
+                type = "File"
+                superreq = false
+            [system.Hosts.earth.symlinks.zshenv]
+                source = "$NANOS_REPOS_DIR/dotfiles/.zshenv"
+                destination = "$HOME/.zshenv"
+                type = "File"
+                superreq = false
+            [system.Hosts.earth.symlinks.tmux_conf]
+                source = "$NANOS_REPOS_DIR/dotfiles/.tmux.conf"
+                destination = "$HOME/.tmux.conf"
+                type = "File"
+                superreq = false
+            [system.Hosts.earth.symlinks.dotconfig]
+                source = "$NANOS_REPOS_DIR/dotfiles/.config"
+                destination = "$HOME/.config"
+                type = "Recursive"
+                superreq = false
+            [system.Hosts.earth.symlinks..doom.d]
+                source = "$NANOS_REPOS_DIR/dotfiles/.doom.d"
+                destination = "$HOME/.doom.d"
+                type = "Recursive"
+                superreq = false
+            [system.Hosts.earth.symlinks.hostfile]
+                source = "$NANOS_REPOS_DIR/dotfiles/linux/hosts"
+                destination = "/etc/hosts"
+                type = "File"
+                superreq = true
+            [system.Hosts.earth.symlinks.thinkfan_conf]
+                source = "$NANOS_REPOS_DIR/dotfiles/etc/thinkfan.conf"
+                destination = "/etc/thinkfan.conf"
+                type = "File"
+                superreq = true
+            [system.Hosts.earth.symlinks.awesome_conf]
+                source = "$NANOS_REPOS_DIR/dotfiles/etc/xdg/awesome/rc.lua"
+                destination = "/etc/xdg/awesome/rc.lua"
+                type = "File"
+                superreq = true
+    #[system.Hosts.mars]
+        #[system.Hosts.mars.packages]
+    #[system.Hosts.phobos]
+        #[system.Hosts.phobos.packages]
+    #[system.Hosts.jupiter]
+        #[system.Hosts.jupiter.packages]
+    #[system.Hosts.saturn]
+        #[system.Hosts.saturn.packages]
+    #[system.Hosts.uranus]
+        #[system.Hosts.uranus.packages]
+    #[system.Hosts.neptune]
+        #[system.Hosts.neptune.packages]
+    #[system.Hosts.pluto]
+        #[system.Hosts.pluto.packages]
+#+end_src
+** system packages
+Defining the package info over and over for each system would be quite tedious.
+Instead we can define the package info once here allowing it to be referenced in many places.
+#+begin_src sh :tangle bish.sh
+    [system.packages]
+        [system.packages.keychain]
+            name = "keychain"
+            description = "Remeber your ssh key passwords until end of session"
+        [system.packages.fd]
+            name = "fd"
+            description = "find but faster"
+        [system.packages.ripgrep]
+            name = "ripgrep"
+            description = "grep but faster"
+        [system.packages.fzf]
+            name = "fzf"
+            description = "fuzzy finder"
+        [system.packages.bat]
+            name = "bat"
+            description = "cat with syntax highlighting"
+        [system.packages.tmux]
+            name = "tmux"
+            description = "terminal multiplexer"
+        [system.packages.flameshot]
+            name = "flameshot"
+            description = "GUI screenshot program"
+        [system.packages.synergy]
+            name = "synergy"
+            description = "mouse/keyboard sharing software"
+        [system.packages.youtube-dl]
+            name = "youtube-dl"
+            description = "download youtube videos"
+        [system.packages.mpv]
+            name = "mpv"
+            description = "video player"
+        [system.packages.zathura]
+            name = "zathura"
+            description = "pdf viewer"
+        [system.packages.yay]
+            name = "yay"
+            description = "AUR package manager"
+        [system.packages.vim]
+            name = "vim"
+            description = "vi improved (text editor)"
+        [system.packages.nodejs]
+            name = "nodejs"
+            description = "javascript package manager"
+        [system.packages.yarn]
+            name = "yarn"
+            description = "package manager"
+        [system.packages.ttf-jetbrains-mono]
+            name = "ttf-jetbrains-mono"
+            description = "jetbrains font"
+        [system.packages.alacritty]
+            name = "alacritty"
+            description = "terminal emulator"
+        [system.packages.emacs]
+            name = "emacs"
+            description = "text editor++"
+        [system.packages.neovim]
+            name = "python-neovim"
+            description = "vim but better"
+        [system.packages.unzip]
+            name = "unzip"
+            description = "unzip files"
+        [system.packages.xsel]
+            name = "xsel"
+            description = "clipboard stuff"
+        [system.packages.bspwm]
+            name = "bspwm"
+            description = "binary space partitioning window manager"
+        [system.packages.sxhkd]
+            name = "sxhkd"
+            description = "simple X hotkey daemon"
+        [system.packages.polybar]
+            name = "polybar"
+            description = "create bars on your desktop"
+#+end_src
+*** system repos
+Defining the repos info over and over for each system would be quite tedious.
+Instead we can define the repo info once here allowing it to be referenced in many places.
+#+begin_src sh :tangle bish.sh
+    [system.repos]
+        [system.repos.dotfiles]
+            remote = "git@bitbucket.org:Nan0Scho1ar/dotfiles.git"
+        [system.repos.scripts]
+            remote = "git@bitbucket.org:Nan0Scho1ar/scripts.git"
+        [system.repos.vimwiki]
+            remote = "git@bitbucket.org:Nan0Scho1ar/vimwiki.git"
+        [system.repos.n0s1.core]
+            remote = "git@github.com:Nan0Scho1ar/n0s1.core.git"
+        [system.repos.bish]
+            remote = "git@github.com:Nan0Scho1ar/bish"
+        [system.repos.gitmanager]
+            remote = "git@github.com:Nan0Scho1ar/gitmanager"
+        [system.repos.n0s1.core]
+            remote = "git@github.com:Nan0Scho1ar/n0s1.core.git"
+#+end_src
+
+** TODO layers
+You do not need to load all genes (features) at once and doing so for large configs could slow things down.
+layers will be used to conditionally load /disable functionality and avoid loading it when it's not needed.
 This is not fully implemented yet but should be quite useful going forwards.
 Watch this space!
 *** Begin layers
 #+begin_src sh :tangle bish.sh
-[Layers]
+[layers]
 #+end_src
-*** Normal layer
+*** normal layer
 #+begin_src sh :tangle bish.sh
-    [Layers.Normal]
-        [Layers.Normal.Genes]
-            [Layers.Normal.Genes.bish]
+    [layers.normal]
+        [layers.normal.genes]
+            [layers.normal.genes.bish]
                 load=true
 
-                [Layers.Normal.Genes.bish.SubMutations]
-                    [Layers.Normal.Genes.bish.SubMutations.bish_conf]
+                [layers.normal.genes.bish.submutations]
+                    [layers.normal.genes.bish.submutations.bish_conf]
                         load=true
 
-                    [Layers.Normal.Genes.bish.SubMutations.bish_transcribe]
+                    [layers.normal.genes.bish.submutations.bish_transcribe]
                         load=true
 
-                    [Layers.Normal.Genes.bish.SubMutations.bish_layers]
+                    [layers.normal.genes.bish.submutations.bish_layers]
                         load=true
 
-            [Layers.Normal.Genes.n0s1]
-                [Layers.Normal.Genes.n0s1.core]
-                    [Layers.Normal.Genes.n0s1.core.toml]
+            [layers.normal.genes.n0s1]
+                [layers.normal.genes.n0s1.core]
+                    [layers.normal.genes.n0s1.core.toml]
                         load=true
 
-                    [Layers.Normal.Genes.n0s1.core.exprq]
+                    [layers.normal.genes.n0s1.core.exprq]
                         load=true
 
-                    [Layers.Normal.Genes.n0s1.core.fzy]
+                    [layers.normal.genes.n0s1.core.fzy]
                         load=true
 
-                    [Layers.Normal.Genes.n0s1.core.convert]
+                    [layers.normal.genes.n0s1.core.convert]
                         load=true
 
-                [Layers.Normal.Genes.n0s1.git_manange]
+                [layers.normal.genes.n0s1.git_manange]
                     load=true
 
-                [Layers.Normal.Genes.n0s1.g]
+                [layers.normal.genes.n0s1.g]
                     load=true
 
-            [Layers.Normal.Genes.z]
+            [layers.normal.genes.z]
                 load=true
 
-            [Layers.Normal.Genes.bliss]
+            [layers.normal.genes.bliss]
                 load=true
 #+end_src
 ** State
@@ -220,8 +478,8 @@ This will be more useful once the toml gene is updated to be able to set/update,
 In the meantime this can still be set/updated manually through other means.
 #+begin_src sh :tangle bish.sh
 # You should not need to touch this.
-[State]
-    layer="Normal"
+[state]
+    layer="normal"
 #+end_src
 ** End config
 Remember, we are in a shell script so it's important that we ensure the config ends before the code starts.
@@ -244,19 +502,19 @@ bish() (
     bish_conf() { echo "$BISH_CONFIG" | toml "$1" "$2" "$3"; }
     # TODO prompt before sourcing (similar to AUR pkg)
     # TODO Allow choosing curl or wget
-    bish_fetch() { curl -fLO "$(bish_conf get_value "Genes.$1.remote")" > "$2"; }
+    bish_fetch() { curl -fLO "$(bish_conf get_value "genes.$1.remote")" > "$2"; }
     # TODO Check if any genes missing from conf
     # TODO Don't double dependencies if met elsewhere
     bish_mutate() {
         echo "TODO Mutate. fetch then transcribe";
         bish_home=$(bish_conf get_value bish.home)
         mkdir -p $bish_home/genes
-        genes="$(bish_conf get Genes | sed -n '/Depends/d;/SubMutations/d;s/Genes\.\(.*\)\.command=".*"/\1/p')"
+        genes="$(bish_conf get genes | sed -n '/Depends/d;/submutations/d;s/Genes\.\(.*\)\.command=".*"/\1/p')"
         for gene in $genes; do
             echo "Fetching $gene";
             bish_fetch "$gene" "$bish_home/genes/$gene"
             cat  "$bish_home/genes/$gene"
-            read -p "Source file? [y/n]"
+            read -p "source file? [y/n]"
             if [[ $REPLY = "Y|y" ]]; then
                 source  "$bish_home/genes/$gene"
             fi
@@ -264,7 +522,7 @@ bish() (
     }
     # TODO Transcribe alias files (not just commands)
     bish_transcribe() {
-        genes="$(bish_conf get Genes | sed -n '/Depends/d;/SubMutations/d;s/.*\.command="\(.*\)"/\1/p')"
+        genes="$(bish_conf get genes | sed -n '/Depends/d;/submutations/d;s/.*\.command="\(.*\)"/\1/p')"
         echo -e "#!/bin/sh\n# BISH: The BioShell\n# Generated: $(date)\n# License: GPL v3\n"
         echo -e "BISH_CONFIG=\"\$(cat << EOF\n${BISH_CONFIG}\nEOF\n)\"\n"
         for gene in $genes; do type $gene | tail -n +2 && echo; done
