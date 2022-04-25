@@ -27,9 +27,6 @@ Before we begin, lets start with a few points to help prevent any confusion rega
    This is just the use case which spawned it's existence.
 **** Bish is not a replacement for your package managers.
    It can however, play quite nicely with them.
-
-
-
 * Bish header
 Every good file needs a good file header
 #+begin_src sh :tangle bish.sh
@@ -80,12 +77,12 @@ We recommend that you don't change it for compatibility reasons, but it's your c
 [genes]
     [genes.bish]
             description = "Bish the BioShell"
-            remote = "https://bish.sh/bish.sh"
+            remote = "http://bish.n0s1.net/bish.sh"
             command = "bish"
-        [genes.bish.Depends]
-            [genes.bish.Depends.toml]
+        [genes.bish.depends]
+            [genes.bish.depends.toml]
                 description = "Read and write toml files"
-                remote = "https://n0s1.sh/toml"
+                remote = "http://core.n0s1.net/out/toml"
                 command = "toml"
                 use_existing = true
         [genes.bish.submutations]
@@ -104,7 +101,7 @@ We recommend that you don't change it for compatibility reasons, but it's your c
 #+end_src
 *** n0s1 genes
 Here is an example of loading some additional functionality.
-All the code is pulled from nan0scho1ar's core repository.
+All the code will be pulled from nan0scho1ar's core repository.
 
 NOTE: The toml script IS REQUIRED.
 If you don't understand why and have not made the required changes to replace it with something else, do not remove it.
@@ -113,213 +110,204 @@ If you don't understand why and have not made the required changes to replace it
         [genes.n0s1.core]
             [genes.n0s1.core.toml]
                 description = ""
-                remote = "https://n0s1.sh/toml"
+                remote = "http://core.n0s1.net/out/toml"
                 command = "toml"
             [genes.n0s1.core.exprq]
                 description = "Evaluate regex cleanly"
-                remote = "https://n0s1.sh/exprq"
+                remote = "http://core.n0s1.net/out/exprq"
                 command = "exprq"
             [genes.n0s1.core.fzy]
                 description = "Small command line fuzzy finder"
-                remote = "https://n0s1.sh/fzy"
+                remote = "http://core.n0s1.net/out/fzy"
                 command = "fzy"
             [genes.n0s1.core.convert]
                 description = "Easily convert between different mediums"
-                remote = "https://n0s1.sh/convert"
+                remote = "http://core.n0s1.net/out/convert"
                 command = "convert"
             [genes.n0s1.core.extract]
                 description = "Easily extract many types of archives with one cmd"
-                remote = "https://n0s1.sh/extract"
+                remote = "http://core.n0s1.net/out/extract"
                 command = "extract"
             [genes.n0s1.core.trypacmaninstall]
                 description = "trypacmaninstall"
-                remote = "https://n0s1.sh/trypacmaninstall"
+                remote = "http://core.n0s1.net/out/trypacmaninstall"
                 command = "trypacmaninstall"
             [genes.n0s1.core.tryaurinstall]
                 description = "tryaurinstall"
-                remote = "https://n0s1.sh/tryaurinstall"
+                remote = "http://core.n0s1.net/out/tryaurinstall"
                 command = "tryaurinstall"
             [genes.n0s1.core.tryaptinstall]
                 description = "tryaptinstall"
-                remote = "https://n0s1.sh/tryaptinstall"
+                remote = "http://core.n0s1.net/out/tryaptinstall"
                 command = "tryaptinstall"
             [genes.n0s1.core.wait_any_key]
                 description = "wait_any_key"
-                remote = "https://n0s1.sh/wait_any_key"
+                remote = "http://core.n0s1.net/out/wait_any_key"
                 command = "wait_any_key"
             [genes.n0s1.core.ask]
                 description = "ask"
-                remote = "https://n0s1.sh/ask"
+                remote = "http://core.n0s1.net/out/ask"
                 command = "ask"
             [genes.n0s1.core.asklink]
                 description = "asklink"
-                remote = "https://n0s1.sh/asklink"
+                remote = "http://core.n0s1.net/out/asklink"
                 command = "asklink"
             [genes.n0s1.core.askrecursivelinkdir]
                 description = "askrecursivelinkdir"
-                remote = "https://n0s1.sh/askrecursivelinkdir"
+                remote = "http://core.n0s1.net/out/askrecursivelinkdir"
                 command = "askrecursivelinkdir"
             [genes.n0s1.core.asklinksudo]
                 description = "asklinksudo"
-                remote = "https://n0s1.sh/asklinksudo"
+                remote = "http://core.n0s1.net/out/asklinksudo"
                 command = "asklinksudo"
             [genes.n0s1.core.askclone]
                 description = "askclone"
-                remote = "https://n0s1.sh/askclone"
+                remote = "http://core.n0s1.net/out/askclone"
                 command = "askclone"
             [genes.n0s1.core.setup_ssh]
                 description = "setup_ssh"
-                remote = "https://n0s1.sh/setup_ssh"
+                remote = "http://core.n0s1.net/out/setup_ssh"
                 command = "setup_ssh"
             [genes.n0s1.core.detect_os]
                 description = "detect_os"
-                remote = "https://n0s1.sh/detect_os"
+                remote = "http://core.n0s1.net/out/detect_os"
                 command = "detect_os"
             [genes.n0s1.core.arch_pkg_setup]
                 description = "arch_pkg_setup"
-                remote = "https://n0s1.sh/arch_pkg_setup"
+                remote = "http://core.n0s1.net/out/arch_pkg_setup"
                 command = "arch_pkg_setup"
             [genes.n0s1.core.ubuntu_pkg_setup]
                 description = "ubuntu_pkg_setup"
-                remote = "https://n0s1.sh/ubuntu_pkg_setup"
+                remote = "http://core.n0s1.net/out/ubuntu_pkg_setup"
                 command = "ubuntu_pkg_setup"
             [genes.n0s1.core.vim_setup]
                 description = "vim_setup"
-                remote = "https://n0s1.sh/vim_setup"
+                remote = "http://core.n0s1.net/out/vim_setup"
                 command = "vim_setup"
             [genes.n0s1.core.tmux_setup]
                 description = "tmux_setup"
-                remote = "https://n0s1.sh/tmux_setup"
+                remote = "http://core.n0s1.net/out/tmux_setup"
                 command = "tmux_setup"
             [genes.n0s1.core.setup_symlinks]
                 description = "setup_symlinks"
-                remote = "https://n0s1.sh/setup_symlinks"
+                remote = "http://core.n0s1.net/out/setup_symlinks"
                 command = "setup_symlinks"
             [genes.n0s1.core.setup_repos]
                 description = "setup_repos"
-                remote = "https://n0s1.sh/setup_repos"
+                remote = "http://core.n0s1.net/out/setup_repos"
                 command = "setup_repos"
             [genes.n0s1.core.setup_git]
                 description = "setup_git"
-                remote = "https://n0s1.sh/setup_git"
+                remote = "http://core.n0s1.net/out/setup_git"
                 command = "setup_git"
         [genes.n0s1.git_manange]
             description = "Easily manage multiple git repositories"
-            remote = "https://n0s1.sh/git_manange"
+            remote = "http://core.n0s1.net/out/git_manange"
             command = "gm"
         [genes.n0s1.g]
             description = "Quick shortcuts for common git commands"
-            remote = "https://n0s1.sh/g"
+            remote = "http://core.n0s1.net/out/g"
             aliases = "g"
 
 #+end_src
-*** Z genes
-This is quite a useful script though I have largely replaced it with cb (cd to bookmark) in my personal configuration.
-#+begin_src sh :tangle bish.sh
-    [genes.z]
-        description = "Quickly navigate to recent/commonly accessed directories"
-        remote = "https://n0s1.sh/z"
-        command = "z"
 
-#+end_src
 *** Bliss genes
-This is not currently used direcly by bish but is still neat.
-We are working toward releasing a verion of bish which allows you to extend functionality using a lisp/shell hybrid, not just plain shell script, without impacting portabilty.
+This is not currently used directly by bish but is still neat.
+We are working toward releasing a Verizon of bish which allows you to extend functionality using a lisp/shell hybrid, not just plain shell script, without impacting portability.
 This is essentially just a modified version of the bash MAL/Fleck which had been tailored to this task.
 Big thanks to the MAL (Make a lisp) project and Fleck (bash MAL makefile) project for the time save here.
 #+begin_src sh :tangle bish.sh
     [genes.bliss]
         description = "Bioshell LISp Syntax"
-        remote = "https://bish.sh/bliss"
+        remote = "http://bish.n0s1.net/bliss"
         command = "bliss"
-
 #+end_src
 ** System Configuration
 Bish can be extended to intergrate with package managers and configure your system. This particular implemention is similar to declarative OSes.
 *** Begin layers
 #+begin_src sh :tangle bish.sh
 [system]
-    #[system.Hosts.mercury]
-        #[system.Hosts.mercury.packages]
-    #[system.Hosts.venus]
-        #[system.Hosts.venus.packages]
-    [system.Hosts.earth]
+    #[system.hosts.mercury]
+        #[system.hosts.mercury.packages]
+    #[system.hosts.venus]
+        #[system.hosts.venus.packages]
+    [system.hosts.earth]
         packages = "keychain fd ripgrep fzf bat tmux flameshot synergy youtube-dl mpv youtube-viewer zathura yay vim nodejs yarn ttf-jetbrains-mono alacritty emacs python-neovim unzip xsel bspwm sxhkd polybar"
-        [system.Hosts.earth.symlinks]
-            [system.Hosts.earth.symlinks.bashrc]
+        [system.hosts.earth.symlinks]
+            [system.hosts.earth.symlinks.bashrc]
                 source = "$NANOS_REPOS_DIR/dotfiles/.bashrc"
                 destination = "$HOME/.bashrc"
                 type = "File"
                 superreq = false
-            [system.Hosts.earth.symlinks.xinitrc]
+            [system.hosts.earth.symlinks.xinitrc]
                 source = "$NANOS_REPOS_DIR/dotfiles/.xinitrc"
                 destination = "$HOME/.xinitrc"
                 type = "File"
                 superreq = false
-            [system.Hosts.earth.symlinks.profile]
+            [system.hosts.earth.symlinks.profile]
                 source = "$NANOS_REPOS_DIR/dotfiles/.profile"
                 destination = "$HOME/.profile"
                 type = "File"
                 superreq = false
-            [system.Hosts.earth.symlinks.vimrc]
+            [system.hosts.earth.symlinks.vimrc]
                 source = "$NANOS_REPOS_DIR/dotfiles/.vimrc"
                 destination = "$HOME/.vimrc"
                 type = "File"
                 superreq = false
-            [system.Hosts.earth.symlinks.xprofile]
+            [system.hosts.earth.symlinks.xprofile]
                 source = "$NANOS_REPOS_DIR/dotfiles/.xprofile"
                 destination = "$HOME/.xprofile"
                 type = "File"
                 superreq = false
-            [system.Hosts.earth.symlinks.zshenv]
+            [system.hosts.earth.symlinks.zshenv]
                 source = "$NANOS_REPOS_DIR/dotfiles/.zshenv"
                 destination = "$HOME/.zshenv"
                 type = "File"
                 superreq = false
-            [system.Hosts.earth.symlinks.tmux_conf]
+            [system.hosts.earth.symlinks.tmux_conf]
                 source = "$NANOS_REPOS_DIR/dotfiles/.tmux.conf"
                 destination = "$HOME/.tmux.conf"
                 type = "File"
                 superreq = false
-            [system.Hosts.earth.symlinks.dotconfig]
+            [system.hosts.earth.symlinks.dotconfig]
                 source = "$NANOS_REPOS_DIR/dotfiles/.config"
                 destination = "$HOME/.config"
                 type = "Recursive"
                 superreq = false
-            [system.Hosts.earth.symlinks..doom.d]
+            [system.hosts.earth.symlinks..doom.d]
                 source = "$NANOS_REPOS_DIR/dotfiles/.doom.d"
                 destination = "$HOME/.doom.d"
                 type = "Recursive"
                 superreq = false
-            [system.Hosts.earth.symlinks.hostfile]
+            [system.hosts.earth.symlinks.hostfile]
                 source = "$NANOS_REPOS_DIR/dotfiles/linux/hosts"
                 destination = "/etc/hosts"
                 type = "File"
                 superreq = true
-            [system.Hosts.earth.symlinks.thinkfan_conf]
+            [system.hosts.earth.symlinks.thinkfan_conf]
                 source = "$NANOS_REPOS_DIR/dotfiles/etc/thinkfan.conf"
                 destination = "/etc/thinkfan.conf"
                 type = "File"
                 superreq = true
-            [system.Hosts.earth.symlinks.awesome_conf]
+            [system.hosts.earth.symlinks.awesome_conf]
                 source = "$NANOS_REPOS_DIR/dotfiles/etc/xdg/awesome/rc.lua"
                 destination = "/etc/xdg/awesome/rc.lua"
                 type = "File"
                 superreq = true
-    #[system.Hosts.mars]
-        #[system.Hosts.mars.packages]
-    #[system.Hosts.phobos]
-        #[system.Hosts.phobos.packages]
-    #[system.Hosts.jupiter]
-        #[system.Hosts.jupiter.packages]
-    #[system.Hosts.saturn]
-        #[system.Hosts.saturn.packages]
-    #[system.Hosts.uranus]
-        #[system.Hosts.uranus.packages]
-    #[system.Hosts.neptune]
-        #[system.Hosts.neptune.packages]
-    #[system.Hosts.pluto]
-        #[system.Hosts.pluto.packages]
+    #[system.hosts.mars]
+        #[system.hosts.mars.packages]
+    #[system.hosts.phobos]
+        #[system.hosts.phobos.packages]
+    #[system.hosts.jupiter]
+        #[system.hosts.jupiter.packages]
+    #[system.hosts.saturn]
+        #[system.hosts.saturn.packages]
+    #[system.hosts.uranus]
+        #[system.hosts.uranus.packages]
+    #[system.hosts.neptune]
+        #[system.hosts.neptune.packages]
+    #[system.hosts.pluto]
+        #[system.hosts.pluto.packages]
 #+end_src
 ** system packages
 Defining the package info over and over for each system would be quite tedious.
@@ -416,8 +404,6 @@ Instead we can define the repo info once here allowing it to be referenced in ma
             remote = "git@github.com:Nan0Scho1ar/bish"
         [system.repos.gitmanager]
             remote = "git@github.com:Nan0Scho1ar/gitmanager"
-        [system.repos.n0s1.core]
-            remote = "git@github.com:Nan0Scho1ar/n0s1.core.git"
 #+end_src
 
 ** TODO layers
@@ -490,7 +476,7 @@ EOF
 #+end_src
 * bish
 Here is the source for the bish itself, as you can see it is rather small.
-I would probably not change this too much or you could cause compatibility issues with newer, more featureful versions of bish.
+I would probably not change this too much or you could cause compatibility issues with newer, more featured versions of bish.
 If you do implement a core feature you just cannot live without and think others may agree, consider submitting a pull request.
 
 Current Ideas:
@@ -502,34 +488,40 @@ bish() (
     bish_conf() { echo "$BISH_CONFIG" | toml "$1" "$2" "$3"; }
     # TODO prompt before sourcing (similar to AUR pkg)
     # TODO Allow choosing curl or wget
+    # TODO Should probably handle errors better
     bish_fetch() { curl -fLO "$(bish_conf get_value "genes.$1.remote")" > "$2"; }
     # TODO Check if any genes missing from conf
     # TODO Don't double dependencies if met elsewhere
     bish_mutate() {
-        echo "TODO Mutate. fetch then transcribe";
         bish_home=$(bish_conf get_value bish.home)
-        mkdir -p $bish_home/genes
-        genes="$(bish_conf get genes | sed -n '/Depends/d;/submutations/d;s/Genes\.\(.*\)\.command=".*"/\1/p')"
+        mkdir -p "$bish_home/genes"
+        genes="$(bish_conf get genes | sed -n '/depends/d;/submutations/d;s/genes\.\(.*\)\.command=".*"/\1/p')"
         for gene in $genes; do
-            echo "Fetching $gene";
+            echo "Fetching ${yellow}${gene}${reset}";
             bish_fetch "$gene" "$bish_home/genes/$gene"
             cat  "$bish_home/genes/$gene"
-            read -p "source file? [y/n]"
-            if [[ $REPLY = "Y|y" ]]; then
-                source  "$bish_home/genes/$gene"
+            if [[ $1 == "-y" ]]; then
+                source "$bish_home/genes/$gene"
+            else
+                while true; do
+                    read -p "Source file? ${yellow}y/n${reset} " -sn1
+                    echo
+                    [[ $REPLY =~ ^[Yy]$ ]] && source "$bish_home/genes/$gene" && break
+                    [[ $REPLY =~ ^[Nn]$ ]] && break
+                done
             fi
         done
     }
     # TODO Transcribe alias files (not just commands)
     bish_transcribe() {
-        genes="$(bish_conf get genes | sed -n '/Depends/d;/submutations/d;s/.*\.command="\(.*\)"/\1/p')"
+        genes="$(bish_conf get genes | sed -n '/depends/d;/submutations/d;s/.*\.command="\(.*\)"/\1/p')"
         echo -e "#!/bin/sh\n# BISH: The BioShell\n# Generated: $(date)\n# License: GPL v3\n"
         echo -e "BISH_CONFIG=\"\$(cat << EOF\n${BISH_CONFIG}\nEOF\n)\"\n"
         for gene in $genes; do type $gene | tail -n +2 && echo; done
         echo -e "\nbish init"
     }
     bish_run() {
-        toml -V > /dev/null || source $(curl "n0s1.sh/toml")
+        toml -V > /dev/null || source $(curl "core.n0s1.net/out/toml")
         [[ -z $BISH_CONFIG ]] && echo "Error, config variable not set" && return 1
         [[ -z $BISH_SHELL ]] && BISH_SHELL="$(awk -F: -v u="$USER" 'u==$1&&$0=$NF' /etc/passwd | sed 's|/bin/||')";
         case "$1" in
