@@ -378,7 +378,7 @@ bish() (
     # TODO prompt before sourcing (similar to AUR pkg)
     # TODO Allow choosing curl or wget
     # TODO Should probably handle errors better
-    bish_fetch() { curl -fLO "$(bish_conf get_value "genes.$1.remote")" > "$2"; }
+    bish_fetch() { curl -fL "$(bish_conf get_value "genes.$1.remote")" > "$2"; }
     # TODO Check if any genes missing from conf
     # TODO Don't double dependencies if met elsewhere
     bish_mutate() {
@@ -403,6 +403,7 @@ bish() (
     }
     # TODO Transcribe alias files (not just commands)
     bish_transcribe() {
+        if [ -v $1 ]; then type $gene | tail -n +2; echo; return; fi
         genes="$(bish_conf get genes | sed -n '/depends/d;/submutations/d;s/.*\.command="\(.*\)"/\1/p')"
         echo -e "#!/bin/sh\n# BISH: The BioShell\n# Generated: $(date)\n# License: GPL v3\n"
         echo -e "BISH_CONFIG=\"\$(cat << EOF\n${BISH_CONFIG}\nEOF\n)\"\n"
@@ -414,9 +415,9 @@ bish() (
         [[ -z $BISH_CONFIG ]] && echo "Error, config variable not set" && return 1
         [[ -z $BISH_SHELL ]] && BISH_SHELL="$(awk -F: -v u="$USER" 'u==$1&&$0=$NF' /etc/passwd | sed 's|/bin/||')";
         case "$1" in
-            "transcribe") bish_transcribe 2>/dev/null ;;
-            "errors") bish_transcribe 1>/dev/null ;;
             "init") bish_init ;;
+            "errors") bish_transcribe 1>/dev/null ;;
+            "transcribe") shift; bish_transcribe $* 2>/dev/null ;;
             "config") shift; bish_conf $* ;;
             "mutate") shift; bish_mutate $* ;;
             "fetch") shift; bish_fetch $* ;;
